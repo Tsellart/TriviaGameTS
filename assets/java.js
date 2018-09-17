@@ -38,7 +38,6 @@ $(document).ready(function() {
 
     };
     var questionList = [questionOne,questionTwo,questionThree,questionFour,questionfive,questionSix];
-    
     var count = 0;
     var Timer = {
         time : 30,
@@ -81,9 +80,7 @@ $(document).ready(function() {
         $('.answerB').text(questionList[questionList].answerList[1]).show();
         $('.answerC').text(questionList[questionList].answerList[2]).show();
         $('.answerD').text(questionList[questionList].answerList[3]).show();
-    }
-    function setup() {
-        count=0
+    
         $('.question').append('<button id="startButton">Start</button>');
         $('.startButton').on('click', function(){
             $(this).hide();
