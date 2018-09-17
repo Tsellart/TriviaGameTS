@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    
     var count = 0;
     var Timer = {
         time : 30,
@@ -71,6 +72,7 @@ $(document).ready(function() {
 
     };
     var questionList = [questionOne,questionTwo,questionThree,questionFour,questionfive,questionSix];
+    
 
     function summonQuestion(questionChoice) {
         Timer.reset();
@@ -87,18 +89,17 @@ $(document).ready(function() {
             $(this).hide();
             Timer.start();
             summonQuestion(count);
-        });
-    }
-    function getAnswer() {
+    
 
-        $('.aChoice').on('click', function() {
-            count++;
-            $('.Q').text('');
-            $('.answerA').text('');
-            $('.answerB').text('');
-            $('.answerC').text('');
-            $('.answerD').text('');
-            summonQuestion();
+            $('.aChoice').on('click', function() {
+                count++;
+                $('.Q').text('');
+                $('.answerA').text('');
+                $('.answerB').text('');
+                $('.answerC').text('');
+                $('.answerD').text('');
+                summonQuestion();
+            }
         });
     }
     function correctAnswer(){
@@ -111,14 +112,12 @@ $(document).ready(function() {
         alert("WRONG");
     }
     function showScore () {
-        $('.Q').empty();
         $('.Q').append("<h3>" + rightAnswers + " right</h3>");
         $('.Q').append("<h3>" + incorrectAnswers + " wrong</h3>");
         Timer.stop();
         $('.timer').empty();
 
     }
-    setup();
     $('.aChoice').on('click', function(){
         if(this.id == 'answerA') {
             var answer = 'A';
