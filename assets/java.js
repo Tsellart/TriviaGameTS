@@ -1,38 +1,4 @@
 $(document).ready(function() {
-    
-    var count = 0;
-    var Timer = {
-        time : 30,
-        reset:function() {
-            this.time = 30;
-            $('#timer').html('<h1>' + this.time);
-        },
-        start: function () {
-            counter = setInterval(Timer.count, 1000);
-        },
-        stop: function() {
-            clearInterval(counter);
-        },
-        count: function() {
-            Timer.time--;
-            console.log(Timer);
-            if (Timer >= 0) {
-                $('#timer').html('<h1>' + Timer + ' seconds left! </h1>')
-            }
-            else {
-                count++;
-                answerWrong();
-                Timer.reset();
-                if (count < questionList.length) {
-                    summonQuestion(count);
-
-                } else {
-                    $("#aChoice").hide();
-                    yourScore();
-                }
-            }
-        }
-    };
     var rightAnswers = 0;
     var incorrectAnswers = 0;
     var questionOne = {
@@ -72,6 +38,40 @@ $(document).ready(function() {
 
     };
     var questionList = [questionOne,questionTwo,questionThree,questionFour,questionfive,questionSix];
+    
+    var count = 0;
+    var Timer = {
+        time : 30,
+        reset:function() {
+            this.time = 30;
+            $('#timer').html('<h1>' + this.time);
+        },
+        start: function () {
+            counter = setInterval(Timer.count, 1000);
+        },
+        stop: function() {
+            clearInterval(counter);
+        },
+        count: function() {
+            Timer.time--;
+            console.log(Timer);
+            if (Timer >= 0) {
+                $('#timer').html('<h1>' + Timer + ' seconds left! </h1>')
+            }
+            else {
+                count++;
+                answerWrong();
+                Timer.reset();
+                if (count < questionList.length) {
+                    summonQuestion(count);
+
+                } else {
+                    $("#aChoice").hide();
+                    yourScore();
+                }
+            }
+        }
+    };
     
 
     function summonQuestion(questionChoice) {
